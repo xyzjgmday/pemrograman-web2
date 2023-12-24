@@ -14,3 +14,7 @@ git clone -b tugas-4 https://github.com/xyzjgmday/pemrograman-web2.git
 ```sh
 git clone -b tugas-5 https://github.com/xyzjgmday/pemrograman-web2.git
 ```
+### Tugas 6
+```sh
+git clone -b tugas-6 https://github.com/xyzjgmday/pemrograman-web2.git
+```
