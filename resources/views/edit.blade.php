@@ -14,31 +14,34 @@
     </nav>
 
     <div class="container mt-4">
-        <h3>Data Pegawai</h3>
+        <h3>Edit Data Pegawai</h3>
         <a href="/pegawai" class="btn btn-secondary">Kembali</a>
         <br/>
         <br/>
-
-        <form action="/pegawai/store" method="post" class="mt-4">
+        
+        @foreach($pegawai as $p)
+        <form action="/pegawai/update" method="post" class="mt-4">
             @csrf
+            <input type ="hidden" name="id" value="{{ $p->pegawai_id }}"> <br/>
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama :</label>
-                <input type="text" name="nama" id="nama" class="form-control" required>
+                <input type="text" name="nama" id="nama" class="form-control" value="{{ $p->pegawai_nama }}" required>
             </div>
             <div class="mb-3">
                 <label for="jabatan" class="form-label">Jabatan :</label>
-                <input type="text" name="jabatan" id="jabatan" class="form-control" required>
+                <input type="text" name="jabatan" id="jabatan" class="form-control" value="{{ $p->pegawai_jabatan }}" required>
             </div>
             <div class="mb-3">
                 <label for="umur" class="form-label">Umur :</label>
-                <input type="number" name="umur" id="umur" class="form-control" required>
+                <input type="number" name="umur" id="umur" class="form-control" value="{{ $p->pegawai_umur }}" required>
             </div>
             <div class="mb-3">
                 <label for="alamat" class="form-label">Alamat :</label>
-                <textarea name="alamat" id="alamat" class="form-control" required></textarea>
+                <textarea name="alamat" id="alamat" class="form-control" required>{{ $p->pegawai_alamat }}</textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Simpan Data</button>
+            <button type="submit" class="btn btn-primary">Update Data</button>
         </form>
+        @endforeach
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
