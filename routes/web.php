@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\PegawaiController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PostMail;
 
 
 /*
@@ -33,4 +35,10 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+
+Route::get('/', function () {
+    Mail::to('mirukim91@gmail.com')
+        ->send(new \App\Mail\PostMail('Mengirim Email Menggunakan SMTP Laravel 8', 'Nur Hidayat'));
+    return 'Terkirim';
 });
